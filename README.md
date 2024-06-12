@@ -17,3 +17,12 @@ A button on each book display to delete the whole book and remove it from the di
 A button to change each book's read status.
 
 Extra: A limit on the number of books.
+
+
+HTML:
+1. floating add button at the top
+2. grid scrolling container below that with a limit on the number of children
+3. modal that appears after you press the add button
+
+
+
