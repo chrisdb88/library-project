@@ -206,12 +206,24 @@ body {
   width: 100%;
   height: 100%;
   border: 4px solid black;
-  border-radius: 16px;
-  box-shadow: 3px 3px rgb(0, 0, 0 ,0.25);
   padding: 16px;
   display: grid;
+  grid-template: repeat(4, 150px) / repeat(5, 250px);
   gap: 16px;
-  grid-template: repeat(1fr, 4) / repeat(1fr, 6)
+  grid-auto-flow: column;
+  grid-auto-columns: 250px;
+  overflow: auto; 
+  min-height: 0;
+  min-width: 0;
+}
+
+.dummyGridChild {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 4px 3px rgb(0, 0, 0 ,0.25);
+  padding: 4px;
 }
 
 .addButton {
