@@ -170,18 +170,65 @@ html {
 
 /* -------------- ^ Normalize ^ --------------  */
 
+* {
+  /* border: 2px solid red; */
+  box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     margin: 0 auto;
     padding: 0;
-    border: 2px solid red;
+    /* border: 1px solid red; */
 }
 
 body {
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.topSegment {
+  flex: 1 1 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
 
+.bottomSegment {
+  flex: 1 1 90%;
+  padding: 16px;
+}
+
+.bookGrid {
+  width: 100%;
+  height: 100%;
+  border: 4px solid black;
+  border-radius: 16px;
+  box-shadow: 3px 3px rgb(0, 0, 0 ,0.25);
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template: repeat(1fr, 4) / repeat(1fr, 6)
+}
+
+.addButton {
+  color: white;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 4px;
+  border-radius: 16px;
+  padding: 8px;
+  font-size: 1.75rem;
+  box-shadow: 2px 2px rgb(0, 0, 0 ,0.25);
+  background-color: rgb(65, 116, 225);
+}
+
+.addButton:hover {
+  background-color: rgb(53, 94, 184);
+}
 
 
 

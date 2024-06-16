@@ -8,6 +8,51 @@
         <script src="./javascript.js" defer></script>
     </head>
     <body>
-        
+        <div class="topSegment">
+            <button class="addButton" type="button">Add Book</button>
+        </div>
+        <div class="bottomSegment">
+            <div class="bookGrid">
+                <div class="dummyGridChild">
+                    Cell
+                </div>
+                <div class="dummyGridChild">
+                    Cell
+                </div>
+                <div class="dummyGridChild">
+                    Cell
+                </div>
+                <div class="dummyGridChild">
+                    Cell
+                </div>
+                <div class="dummyGridChild">
+                    Cell
+                </div>
+                <div class="dummyGridChild">
+                    Cell
+                </div>
+                <div class="dummyGridChild">
+                    Cell
+                </div>
+            </div>
+        </div>
+        <dialog class="modal">
+            <div class="topModalSegment">
+                <button class="cancelButton" type="button">Cancel</button>
+            </div>
+            <form method="dialog" id="bookForm">
+                <label for="author">Author</label>
+                <input type="text" id="author" placeholder="John Smith">
+                <label for="title">Title</label>
+                <input type="text" id="title">
+                <label for="pages">No. of Pages</label>
+                <input type="number" id="pages" placeholder="1 - 99999">
+                <label for="read">Check this box if read</label>
+                <input type="checkbox" id="read">
+            </form>
+            <div class="bottomModalSegment">
+                <button class="submitButton" form="bookForm" type="submit">Submit</button>
+            </div>
+        </dialog>
     </body>
 </html>
