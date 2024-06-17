@@ -14,6 +14,7 @@
         <div class="bottomSegment">
             <div class="bookGrid">
                 <div class="gridChild">
+                    <button class="deleteChild">X</button>
                     <div class="infoTagsContainer">
                         <div class="infoTag">Author</div>
                         <div class="infoTag">Title</div>
@@ -117,22 +118,35 @@
                 </div> -->
             </div>
         </div>
-        <dialog class="modal">
-            <div class="topModalSegment">
-                <button class="cancelButton" type="button">Cancel</button>
-            </div>
+        <dialog class="bookModal">
             <form method="dialog" id="bookForm">
-                <label for="author">Author</label>
-                <input type="text" id="author" placeholder="John Smith">
-                <label for="title">Title</label>
-                <input type="text" id="title">
-                <label for="pages">No. of Pages</label>
-                <input type="number" id="pages" placeholder="1 - 99999">
-                <label for="read">Check this box if read</label>
-                <input type="checkbox" id="read">
+                <div class="formDivOne">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" placeholder="John Smith">
+                </div>
+                <div class="formDivTwo">
+                    <label for="title">Title</label>
+                    <input type="text" id="title">
+                </div>
+                <div class="formDivThree">
+                    <label for="pages">No. of Pages</label>
+                    <input type="number" id="pages" placeholder="1 - 99999">
+                </div>
+                <div class="formDivFour">
+                    <label for="read">Read?</label>
+                    <input type="checkbox" id="read">
+                </div>
             </form>
             <div class="bottomModalSegment">
+                <button class="cancelButton" type="button">Cancel</button>
                 <button class="submitButton" form="bookForm" type="submit">Submit</button>
+            </div>
+        </dialog>
+        <dialog class="deleteModal">
+            <div>Delete this book?</div>
+            <div class="deleteButtonsContainer">
+                <button>Delete</button>
+                <button>Cancel</button>
             </div>
         </dialog>
     </body>
