@@ -25,6 +25,24 @@ HTML:
 3. modal that appears after you press the add button
 
 
+Two main functions, splice, push.
+
+Have a listener for when the array changes, if something is deleted, do something, else end.
+
+Have a unique identifying class for each grid child, that associates with it's array index, so like, 
+book, then concatenate with the array index. You will need to dynamically update the class names when a book
+gets deleted, but not when one gets added because it will always get added to the end. In this instance, I 
+think forEach is appropriate. Just do forEach(assign the class to book, concatenate with index). The index
+position and the dom positions will appear to dynamically change, but this will create issues in the future where there will be duplicate class names, because we didn't update the class names in association with the index position. In that case, the wrong book, or multiple books may be deleted.
+
+When creating a new book, push it into the array.
+
+When deleting a grid child, splice it from the array, then delete the object. Make sure to specify to only
+remove the 1.
+
+
+
+
 
 Normalize
 

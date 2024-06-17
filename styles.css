@@ -225,6 +225,7 @@ body {
   border-radius: 8px;
   box-shadow: 4px 3px rgb(0, 0, 0 ,0.25);
   padding: 4px;
+  padding-top: 16px;
   display: flex;
   justify-content: center;
 }
@@ -297,7 +298,8 @@ body {
   text-align: center;
   height: 25px;
   width: 25px;
-  left: 97%;
+  left: 99%;
+  top: 1%;
   transform: translateX(-100%);
   background-color: rgb(255, 68, 68);
   color: white;
