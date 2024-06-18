@@ -8,8 +8,12 @@ const bookModal = document.querySelector(".bookModal")
 const addButton = document.querySelector(".addButton")
 const cancelButton = document.querySelector('.cancelButton')
 const clearButton = document.querySelector('.clearButton')
+const deleteModal = document.querySelector('.deleteModal')
+const deleteCancel = document.querySelector('.deleteCancel')
+const deleteButton = document.querySelector('.deleteButton')
 
-bookGrid.appendChild(childClone)
+let focusedChild
+let focusedObject
 
 const bookCollection = [];
 
@@ -54,6 +58,13 @@ function constructBook(author, title, pages, read) {
         }
     })
 
+    newChild.querySelector('.deleteChild').addEventListener('click', () => {
+        focusedChild = document.querySelector(`#${this.identify}`)
+        console.log(focusedChild)
+        focusedObject = this
+        deleteModal.showModal()
+    })
+
     bookGrid.appendChild(newChild)
     
     newBookPos++
@@ -83,6 +94,8 @@ bookForm.addEventListener("submit", function(e) {
     e.preventDefault()
     let pagesToNumber = Number(pagesInput.value)
 
+    // v Validation v
+
     if ((typeof authorInput.value === "string" && authorInput.value.length >= 1 && authorInput.value.length <= 20)
         && (typeof titleInput.value === "string" && titleInput.value.length >= 1 && titleInput.value.length <= 20)
         && (typeof pagesInput.value === "string" && pagesToNumber >= 1 && pagesToNumber <= 99999)
@@ -100,9 +113,27 @@ clearButton.addEventListener('click', function() {
     bookForm.reset()
 })
 
+deleteCancel.addEventListener('click', function() {
+    deleteModal.close()
+    focusedChild = undefined
+    focusedObject = undefined
+})
 
+const updateIndex = function(item) {
+    newID = `book${bookCollection.indexOf(item)}`
+    item.id = newID
+    item.identify = newID
+}
 
-
+deleteButton.addEventListener('click', function() {
+    focusedChild.remove()
+    bookCollection.splice(focusedObject, 1) 
+    bookCollection.forEach(updateIndex)
+    newBookPos--
+    focusedChild = undefined
+    focusedObject = undefined
+    deleteModal.close()
+})
 
 
 
