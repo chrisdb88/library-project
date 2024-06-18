@@ -314,29 +314,9 @@ body {
   filter: brightness(85%);
 }
 
-/* .deleteModal {
-  display: flex; 
-  flex-direction: column;
-} */
-
-/* .deleteModal > div {
-  flex: 1 1 20%;
+input:invalid {
+  border: 1px solid red;
 }
-
-.deleteButtonsContainer {
-  flex: 1 1 80%;
-} */
-
-/* .toggleReadButton:hover::before {
-  position: absolute;
-  content: "toggle";
-  width: max-content;
-  padding: .35rem;
-  left: 115%;
-  bottom: 50%;
-  color: orange;
-  font-family: Arial, Helvetica, sans-serif;
-} */
 
 .addButton {
   color: white;

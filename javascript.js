@@ -1,4 +1,3 @@
-
 const childClone = document.querySelector('.gridChild').cloneNode(true);
 document.querySelector('.gridChild').remove()
 
@@ -12,7 +11,6 @@ const deleteModal = document.querySelector('.deleteModal')
 const deleteCancel = document.querySelector('.deleteCancel')
 const deleteButton = document.querySelector('.deleteButton')
 
-let focusedChild
 let focusedObject
 
 const bookCollection = [];
@@ -57,27 +55,20 @@ function constructBook(author, title, pages, read) {
         }
     })
 
-    // newChild.querySelector('.deleteChild').addEventListener('click', () => {
-    //     this.remove()
-    // })
+    newChild.querySelector('.deleteChild').addEventListener('click', () => {
+        focusedObject = this;
+        deleteModal.showModal()
+    })
 
     bookGrid.appendChild(newChild)
-
-    document.querySelector(`#${this.identify}`).querySelector('.deleteChild').addEventListener('click', () => {
-        document.querySelector(`#${this.identify}`).remove()
-        console.log(this.identify)
-    })
     
     newBookPos++
 
     this.deleteThis = () => {
-        // const thisElement = document.getElementById(this.identify)
-        // thisElement.remove()
         document.querySelector(`#${this.identify}`).remove()
     }
+
     bookCollection.push(this)
-    console.log(bookCollection[1].identify)
-    console.log(bookCollection[1].title)
 }
 
 addButton.addEventListener("click", function() {
@@ -105,7 +96,7 @@ bookForm.addEventListener("submit", function(e) {
         && (typeof pagesInput.value === "string" && pagesToNumber >= 1 && pagesToNumber <= 99999)
         && (typeof readInput.checked === "boolean") && (readInput.checked === true || readInput.checked === false)) 
         {
-            constructBook(authorInput.value, titleInput.value, pagesInput.value, readInput.checked)
+            new constructBook(authorInput.value, titleInput.value, pagesInput.value, readInput.checked)
             bookModal.close()
             bookForm.reset()
         } else {
@@ -119,25 +110,12 @@ clearButton.addEventListener('click', function() {
 
 deleteCancel.addEventListener('click', function() {
     deleteModal.close()
-    focusedChild = undefined
     focusedObject = undefined
 })
-
-const updateIndex = function(item) {
-    let newID = `book${bookCollection.indexOf(item)}`
-    document.querySelector(`#${item.identify}`).id = newID
-    item.identify = newID
-}
 
 deleteButton.addEventListener('click', function() {
     focusedObject.deleteThis()
     bookCollection.splice(focusedObject, 1) 
-    
-    focusedChild = undefined
     focusedObject = undefined
     deleteModal.close()
 })
-
-
-
-
