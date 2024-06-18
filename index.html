@@ -22,9 +22,9 @@
                         <div class="infoTag">Read</div>
                     </div>
                     <div class="infoContainer">
-                        <div class="info">asdfasdfasdfasdf</div>
-                        <div class="info">test</div>
-                        <div class="info">test</div>
+                        <div class="info authorInfo">placeholder</div>
+                        <div class="info titleInfo">placeholder</div>
+                        <div class="info pagesInfo">placeholder</div>
                         <div class="info readContainer">
                             <div class="readStatus">
                                 Yes
@@ -35,102 +35,21 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div>
-                <div class="gridChild">
-                    Cell
-                </div> -->
             </div>
         </div>
         <dialog class="bookModal">
             <form method="dialog" id="bookForm">
                 <div class="formDivOne">
                     <label for="author">Author</label>
-                    <input type="text" id="author" placeholder="John Smith">
+                    <input type="text" id="author" placeholder="John Smith" minlength="1" maxlength="20">
                 </div>
                 <div class="formDivTwo">
                     <label for="title">Title</label>
-                    <input type="text" id="title">
+                    <input type="text" id="title" minlength="1" maxlength="20">
                 </div>
                 <div class="formDivThree">
                     <label for="pages">No. of Pages</label>
-                    <input type="number" id="pages" placeholder="1 - 99999">
+                    <input type="number" id="pages" placeholder="1 - 99999" min="1" max="99999">
                 </div>
                 <div class="formDivFour">
                     <label for="read">Read?</label>
@@ -138,6 +57,7 @@
                 </div>
             </form>
             <div class="bottomModalSegment">
+                <button class="clearButton" type="button">Clear</button>
                 <button class="cancelButton" type="button">Cancel</button>
                 <button class="submitButton" form="bookForm" type="submit">Submit</button>
             </div>
