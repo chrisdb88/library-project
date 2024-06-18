@@ -26,13 +26,12 @@ function constructBook(author, title, pages, read) {
     this.pages = pages;
     this.read = read
 
-    this.pos = newBookPos
-    this.identify = `book${this.pos}`
+    this.identify = `book${newBookPos}`
 
     const newChild = childClone.cloneNode(true)
 
     newChild.className = "gridChild"
-    newChild.id += this.identify
+    newChild.id = this.identify
 
     newChild.querySelector('.authorInfo').textContent = author;
     newChild.querySelector('.titleInfo').textContent = title;
@@ -58,22 +57,27 @@ function constructBook(author, title, pages, read) {
         }
     })
 
-    newChild.querySelector('.deleteChild').addEventListener('click', () => {
-        focusedChild = document.querySelector(`#${this.identify}`)
-        console.log(focusedChild)
-        focusedObject = this
-        deleteModal.showModal()
-    })
+    // newChild.querySelector('.deleteChild').addEventListener('click', () => {
+    //     this.remove()
+    // })
 
     bookGrid.appendChild(newChild)
+
+    document.querySelector(`#${this.identify}`).querySelector('.deleteChild').addEventListener('click', () => {
+        document.querySelector(`#${this.identify}`).remove()
+        console.log(this.identify)
+    })
     
     newBookPos++
 
-    this.delete = function() {
-        const thisElement = document.getElementById(this.identify)
-        thisElement.remove()
+    this.deleteThis = () => {
+        // const thisElement = document.getElementById(this.identify)
+        // thisElement.remove()
+        document.querySelector(`#${this.identify}`).remove()
     }
     bookCollection.push(this)
+    console.log(bookCollection[1].identify)
+    console.log(bookCollection[1].title)
 }
 
 addButton.addEventListener("click", function() {
@@ -120,16 +124,15 @@ deleteCancel.addEventListener('click', function() {
 })
 
 const updateIndex = function(item) {
-    newID = `book${bookCollection.indexOf(item)}`
-    item.id = newID
+    let newID = `book${bookCollection.indexOf(item)}`
+    document.querySelector(`#${item.identify}`).id = newID
     item.identify = newID
 }
 
 deleteButton.addEventListener('click', function() {
-    focusedChild.remove()
+    focusedObject.deleteThis()
     bookCollection.splice(focusedObject, 1) 
-    bookCollection.forEach(updateIndex)
-    newBookPos--
+    
     focusedChild = undefined
     focusedObject = undefined
     deleteModal.close()
